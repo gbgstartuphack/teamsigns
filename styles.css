@@ -1,0 +1,58 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+article {
+  width: 21cm;
+  height: 29.7cm;
+  page-break-inside: never;
+}
+
+section {
+  position: relative;
+  padding-bottom: 7.425cm;
+  height: 7.425cm;
+}
+
+section:first-child {
+  -webkit-transform: rotate(-180deg);
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 400%;
+  text-align: center;
+  font-family: 'Open Sans';
+  height: 7.425cm;
+  line-height: 7.425cm;
+  margin: 0;
+  padding: 0;
+}
+
+h1.bitcoin-masters-of-the-universe {
+  font-size: 300%;
+}
+
+h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1cm 2cm;
+  font-size: 100%;
+  font-family: Pacifico;
+  font-weight: normal;
+  text-align: center;
+}
+
+h2 small {
+  display: block;
+  font-family: Ubuntu;
+  font-weight: 200;
+  text-align: center;
+  color: #aaa;
+  text-transform: uppercase;
+  font-size: 50%;
+  letter-spacing: .30em;
+  margin-left: 1em;
+}

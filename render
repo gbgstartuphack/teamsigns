@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+
+if (!fs.existsSync(process.argv[2]) || !fs.existsSync(process.argv[3])) {
+  console.log('Usage: node render.js [template.html] [responses.json]');
+}
+
+var responses = JSON.parse(fs.readFileSync(process.argv[3], 'utf-8'));
+
+var unique = require('mout/array/unique');
+
+var responses = unique(responses.map(function(response) {
+  return {
+    teamName: response['Team name'],
+    className: response['Team name'].toLowerCase().replace(/[^a-z ]/g, '').replace(/ +/g, '-')
+  };
+}), function(a, b) { return a.teamName === b.teamName; });
+
+var handlebars = require('handlebars');
+
+var template = fs.readFileSync(process.argv[2], 'utf-8');
+
+var renderer = handlebars.compile(template);
+
+console.log(renderer({ responses: responses }));
